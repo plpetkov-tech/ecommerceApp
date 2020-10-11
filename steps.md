@@ -133,7 +133,7 @@ We select the following dependencies :
 ---
 1. Setup application.properties
 
-```toml
+```yaml
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:6033/full-stack-ecommerce?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
 spring.datasource.username=ecommerceapp
