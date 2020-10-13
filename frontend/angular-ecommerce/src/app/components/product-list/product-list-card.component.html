@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div *ngFor="let tempProduct of products" class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ tempProduct.imageUrl }}" alt="Card image cap">
+                    <div class="d-flex flex-column card-body">
+                      <h5 class="mt-auto card-title">{{ tempProduct.name }}</h5>
+                      <p class="mt-auto card-text">{{ tempProduct.unitPrice | currency:'USD' }}</p>
+                      <a href="#" class="mt-auto btn btn-primary">Add to cart</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
