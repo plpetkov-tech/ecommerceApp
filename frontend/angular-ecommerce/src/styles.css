@@ -746,6 +746,11 @@ table.table.table-bordered th {
 .detail-section {
   margin-top: 60px;
 }
+
+.detail-img {
+  margin-top: 3vh;
+  width: 30%;
+}
 /**/
 
 /* 
@@ -792,7 +797,7 @@ footer {
   z-index: 1;
   position: relative;
   text-align: center;
-  height: 6vh;
+  height: 8vh;
 }
 footer li a {
   color: #313131;
