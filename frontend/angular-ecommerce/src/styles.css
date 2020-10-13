@@ -751,6 +751,10 @@ table.table.table-bordered th {
   margin-top: 3vh;
   width: 30%;
 }
+
+ngb-pagination ::ng-deep a {
+  background-color: black !important;
+}
 /**/
 
 /* 
@@ -808,7 +812,8 @@ footer ul li {
   font-size: 14px;
   padding: 10px 20px;
 }
-
+page-size-style {
+}
 /* 
  * ----------------------------
  * Media Queries
@@ -1001,6 +1006,7 @@ footer ul li {
   .footer-pagination {
     text-align: center;
   }
+  
   .product-box {
     text-align: center;
   }
