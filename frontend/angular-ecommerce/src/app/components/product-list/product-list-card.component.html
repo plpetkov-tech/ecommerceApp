@@ -21,7 +21,7 @@
             <p class="mt-auto card-text">
               {{ tempProduct.unitPrice | currency: "USD" }}
             </p>
-            <a href="#" class="mt-auto btn btn-primary">Add to cart</a>
+            <button (click)="addToCart(tempProduct)" class="btn btn-primary">Add to cart</button>
           </div>
         </div>
         <!-- if product list is empty then display a message -->
