@@ -12,12 +12,11 @@ import { CartItem } from 'src/app/common/cart-item';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  // instanciating Product to avoid race condition on imageUrl
   product: Product = new Product();
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -37,13 +36,12 @@ export class ProductDetailsComponent implements OnInit {
     )
   }
 
-  addToCart(theProduct:Product){
-    console.log(`Adding to cart: ${theProduct.name} , ${theProduct.unitPrice}`);
-    
-    const theCartItem = new CartItem(theProduct);
+  addToCart() {
 
+    console.log(`Adding to cart: ${this.product.name}, ${this.product.unitPrice}`);
+    const theCartItem = new CartItem(this.product);
     this.cartService.addToCart(theCartItem);
+    
   }
-
 
 }
