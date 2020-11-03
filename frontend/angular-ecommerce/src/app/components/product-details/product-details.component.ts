@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/common/cart-item';
 
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',

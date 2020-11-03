@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Add Product</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+         
+    </head>
+    <body>
+        <div class="container my-5">
+            <h2 class="mb-5">New Product</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="#" th:action="@{/addproduct}" th:object="${product}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="sku" class="col-form-label">Sku</label>
+                                <input type="text" th:field="*{sku}" class="form-control" id="sku" placeholder="Sku">
+                                <span th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="name" class="col-form-label">Name</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="description" class="col-form-label">Description</label>
+                                <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Description">
+                                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="ingredients" class="col-form-label">Ingredients</label>
+                                <textarea class="form-control" name="Ingredients" th:field="*{ingredients}" placeholder="Ingredients"></textarea>
+                                <span th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="recipe" class="col-form-label">Recipe</label>
+                                <textarea class="form-control" name="Recipe" th:field="*{recipe}" placeholder="Recipe"></textarea>
+                                <span th:if="${#fields.hasErrors('recipe')}" th:errors="*{recipe}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="unitPrice" class="col-form-label">Unit price</label>
+                                <input type="text" th:field="*{unitPrice}" class="form-control" id="unitPrice" placeholder="Unit price">
+                                <span th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="imageUrl" class="col-form-label">Image Url</label>
+                                <input type="text" th:field="*{imageUrl}" class="form-control" id="imageUrl" placeholder="Image Url">
+                                <span th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="active" class="col-form-label">Active</label>
+                                <input type="text" th:field="*{active}" class="form-control" id="active" placeholder="Active">
+                                <span th:if="${#fields.hasErrors('active')}" th:errors="*{active}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="unitsInStock" class="col-form-label">Units in stock</label>
+                                <input type="text" th:field="*{unitsInStock}" class="form-control" id="unitsInStock" placeholder="Units in stock">
+                                <span th:if="${#fields.hasErrors('unitsInStock')}" th:errors="*{unitsInStock}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="dateCreated" class="col-form-label">Date created</label>
+                                <input type="text" th:field="*{dateCreated}" class="form-control" id="dateCreated" placeholder="Date created">
+                                <span th:if="${#fields.hasErrors('dateCreated')}" th:errors="*{dateCreated}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastUpdated" class="col-form-label">Last updated</label>
+                                <input type="text" th:field="*{lastUpdated}" class="form-control" id="lastUpdated" placeholder="Last updated">
+                                <span th:if="${#fields.hasErrors('lastUpdated')}" th:errors="*{lastUpdated}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="category" class="col-form-label">Product category</label>
+                                <select th:field="*{category}" class="form-control">
+                                    <option th:each="productCategory: ${productCategories}" th:value="${productCategory.id}" th:text="${productCategory.categoryName}"></option>
+                                 </select>
+                                <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" class="btn btn-primary" value="Add User">
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

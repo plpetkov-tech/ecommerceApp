@@ -40,6 +40,12 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "recipe")
+    private String recipe;
+
+    @Column(name = "ingredients")
+    private String ingredients;
+
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 

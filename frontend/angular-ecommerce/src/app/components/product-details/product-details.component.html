@@ -5,12 +5,18 @@
 
         <h3>{{ product.name }}</h3>
         <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
-        <button (click)="addToCart()" class="btn btn-primary btn-sm">Add to cart</button>
+        <button (click)="addToCart()" class="btn btn-primary btn-sm">Добави в количката</button>
 
         <hr>
-        <h4>Description</h4>
+        <h6>Категория</h6>
         <p>{{ product.description }}</p>
-
+        <h6>Рецепта</h6>
+        <div markdown ngPreserveWhitespaces>
+            {{ product.recipe }}
+        </div>
+        
+        <h6>Продукти</h6>
+        <p>{{ product.ingredients }}</p>
         <a routerLink="/products" class="mt-5">Back to Product List</a>
     </div>
 </div>

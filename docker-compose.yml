@@ -1,0 +1,49 @@
+version: "3.2"
+
+services:
+  ecommerceDB:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ecommerceApp
+      MYSQL_DATABASE: full-stack-ecommerce
+      MYSQL_PASSWORD: ecommerceApp
+    container_name: ecommerceDB
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./backend/mysql-data:/docker-entrypoint-initdb.d
+  phpmyadmin:
+    depends_on:
+      - ecommerceDB
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: ecommerceDB
+
+  ecommerce-backend:
+    container_name: ecommerce-backend
+    build:
+      context: ./backend/spring-boot-ecommerce/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - ecommerceDB
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://ecommerceDB:3306/full-stack-ecommerce?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ecommerceApp
+  
+  angular-ecommerce:
+    container_name: angular-ecommerce
+    build:
+      context: ./frontend/angular-ecommerce/
+      dockerfile: Dockerfile
+    ports:
+      - '4200:80'
+  

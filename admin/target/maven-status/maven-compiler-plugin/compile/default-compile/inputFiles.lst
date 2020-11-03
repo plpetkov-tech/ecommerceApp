@@ -1,0 +1,7 @@
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/entities/Product.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/repositories/ProductCategoryRepository.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/entities/ProductCategory.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/controllers/ProductController.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/controllers/ProductCategoryController.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/Application.java
+/home/plpetkov/Development/ecommerceProject/ecommerceApp/admin/src/main/java/com/plamenpetkovonline/crud/repositories/ProductRepository.java

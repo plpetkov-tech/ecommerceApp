@@ -3,6 +3,8 @@ export class Product {
     sku: string;
     name: string;
     description: string;
+    recipe: string;
+    ingredients: string;
     unitPrice: number;
     imageUrl: string;
     active: boolean;
