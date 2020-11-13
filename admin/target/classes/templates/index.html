@@ -10,9 +10,29 @@
        
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                
+                </ul>
+            </div>
+            </nav>
         <div th:switch="${products}" >
             <div class="row">
                 <div class="col-md-6">
+                     
+
                     <h2 th:case="null">No products yet!</h2>
                     <div th:case="*">
                         <h2 class="my-5">Products</h2>
@@ -27,6 +47,8 @@
                                     <th>Id</th>
                                     <th>Sku</th>
                                     <th>Name</th>
+                                    <th>Recipe</th>
+                                    <th>Ingredients</th>
                                     <th>Description</th>
                                     <th>Unit price</th>
                                     <th>Image url</th>
@@ -45,9 +67,9 @@
                                     <td th:text="${product.id}"></td>
                                     <td th:text="${product.sku}"></td>
                                     <td th:text="${product.name}"></td>
-                                    <td th:text="${product.recipe}"></td>
-                                    <td th:text="${product.ingredients}"></td>
-
+                                    <td th:text="${product.recipe.substring(0,50)}"></td>
+                                    <td th:text="${product.ingredients.substring(0,50)}"></td>
+                                    <td th:text="${product.description}"></td>
                                     <td th:text="${product.unitPrice}"></td>
                                     <td th:text="${product.imageUrl}"></td>
                                     <td th:text="${product.active}"></td>
@@ -55,8 +77,6 @@
                                     <td th:text="${product.dateCreated}"></td>
                                     <td th:text="${product.lastUpdated}"></td>
                                     <td th:text="${product.category.getCategoryName()}"></td>
-
-
                                     <td><a th:href="@{/edit/{id}(id=${product.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                     <td><a th:href="@{/delete/{id}(id=${product.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
                                 </tr>

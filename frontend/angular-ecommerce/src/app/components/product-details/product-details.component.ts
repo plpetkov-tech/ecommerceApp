@@ -15,6 +15,9 @@ export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
 
+  recipe: string = "Loading...";
+  ingredients: string = "Loading...";
+
   constructor(private productService: ProductService,
               private cartService: CartService,
               private route: ActivatedRoute) { }
@@ -33,6 +36,8 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
+        this.ingredients = this.product.ingredients;
+        this.recipe = this.product.recipe;
       }
     )
   }

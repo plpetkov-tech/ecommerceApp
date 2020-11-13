@@ -17,6 +17,8 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MarkdownModule } from 'ngx-markdown';
+
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
@@ -42,11 +44,14 @@ const routes: Routes = [
     CheckoutComponent
   ],
   imports: [
+
+    MarkdownModule.forRoot(),
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule
+    
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

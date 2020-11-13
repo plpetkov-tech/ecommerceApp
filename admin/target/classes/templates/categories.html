@@ -10,15 +10,38 @@
        
     </head>
     <body>
+       
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                
+                </ul>
+            </div>
+            </nav>
         <div th:switch="${productCategories}" >
             <div class="row">
+                
                 <div class="col-md-6">
                     <h2 th:case="null">No Categories yet!</h2>
                     <div th:case="*">
                         <h2 class="my-5">Categories</h2>
-                        <div class="row justify-content-center"></div>
-                        <table align="center" style="  margin: auto;
-                        width: 100% !important; " class="table table-responsive-md">
+                        <p class="my-5"><a href="/addProductCategory" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+                
+                        <div class="row justify-content-center">
+                            
+                        </div>
+                        <table align="center" style="margin-left: 20%;" class="table table-hover table-dark">
                             
                             
                                 <div class="col-auto">
@@ -41,8 +64,7 @@
                             </tbody>
                         </table>
                     </div>      </div>      </div>      
-                    <p class="my-5"><a href="/addProductCategory" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
-                </div>
+                    </div>
             </div>
         </div>
     </body>

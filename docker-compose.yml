@@ -4,6 +4,7 @@ services:
   ecommerceDB:
     image: mysql
     environment:
+      LANG: C.UTF-8
       MYSQL_ROOT_PASSWORD: ecommerceApp
       MYSQL_DATABASE: full-stack-ecommerce
       MYSQL_PASSWORD: ecommerceApp
@@ -46,4 +47,17 @@ services:
       dockerfile: Dockerfile
     ports:
       - '4200:80'
-  
+  ecommerce-admin:
+    container_name: ecommerce-admin
+    build:
+      context: ./admin/
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    restart: always
+    depends_on:
+      - ecommerceDB
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://ecommerceDB:3306/full-stack-ecommerce?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ecommerceApp

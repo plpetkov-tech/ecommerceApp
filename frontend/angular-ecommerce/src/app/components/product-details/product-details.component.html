@@ -1,22 +1,29 @@
 <div class="detail-section">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <img src="{{ product.imageUrl }}" class="detail-img" />
 
-        <img src="{{ product.imageUrl }}" class="detail-img">
+    <h3>{{ product.name }}</h3>
+    <div class="price">{{ product.unitPrice | currency: "USD" }}</div>
+    <button (click)="addToCart()" class="btn btn-primary btn-sm">
+      Добави в количката
+    </button>
 
-        <h3>{{ product.name }}</h3>
-        <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
-        <button (click)="addToCart()" class="btn btn-primary btn-sm">Добави в количката</button>
-
-        <hr>
-        <h6>Категория</h6>
-        <p>{{ product.description }}</p>
-        <h6>Рецепта</h6>
-        <div markdown ngPreserveWhitespaces>
-            {{ product.recipe }}
-        </div>
-        
-        <h6>Продукти</h6>
-        <p>{{ product.ingredients }}</p>
-        <a routerLink="/products" class="mt-5">Back to Product List</a>
+    <hr />
+    <h6>Категория</h6>
+    <p>{{ product.description }}</p>
+    <h6>Рецепта</h6>
+    <div style="margin-left:10px">
+    
+      
+    <markdown class="variable-binding" [data]="recipe"></markdown>
     </div>
+    <h6>Продукти</h6>
+    <div style="margin-left:10px">
+    
+      <markdown class="variable-binding" [data]="ingredients">
+        
+      </markdown>
+    </div>
+    <a routerLink="/products" class="mt-5">Back to Product List</a>
+  </div>
 </div>
