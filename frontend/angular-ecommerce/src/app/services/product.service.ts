@@ -10,9 +10,9 @@ import { ProductCategory } from '../common/product-category';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
+  private baseUrl = 'http://healthyandtasty.club:7070/api/products';
 
-  private categoryUrl = 'http://localhost:8080/api/product-category';
+  private categoryUrl = 'http://healthyandtasty.club:7070/api/product-category';
 
   constructor(private httpClient: HttpClient) { }
 
