@@ -17,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
 
   recipe: string = "Loading...";
   ingredients: string = "Loading...";
+  time: string = "Loading...";
 
   constructor(private productService: ProductService,
               private cartService: CartService,
@@ -38,6 +39,7 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data;
         this.ingredients = this.product.ingredients;
         this.recipe = this.product.recipe;
+        this.time = this.product.recipe.split('\n')[0];
       }
     )
   }

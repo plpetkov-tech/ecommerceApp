@@ -1,29 +1,35 @@
+<link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap" rel="stylesheet">
 <div class="detail-section">
   <div class="container-fluid">
     <img src="{{ product.imageUrl }}" class="detail-img" />
 
     <h3>{{ product.name }}</h3>
     <div class="price">{{ product.unitPrice | currency: "USD" }}</div>
-    <button (click)="addToCart()" class="btn btn-primary btn-sm">
+    <button (click)="addToCart()" class="btn-sm">
       Добави в количката
     </button>
 
     <hr />
     <h6>Категория</h6>
     <p>{{ product.description }}</p>
-    <h6>Рецепта</h6>
-    <div style="margin-left:10px">
+
     
-      
-    <markdown class="variable-binding" [data]="recipe"></markdown>
-    </div>
-    <h6>Продукти</h6>
     <div style="margin-left:10px">
-    
-      <markdown class="variable-binding" [data]="ingredients">
+      <h6>Продукти</h6>
+      <markdown class="variable-binding olio"  [data]="ingredients">
         
       </markdown>
     </div>
+
+
+    
+    <div class="recepta" style="margin-left:10px">
+      <h6>Рецепта</h6>
+      
+    <markdown class="variable-binding" [data]="recipe"></markdown>
+    </div>
+    
     <a routerLink="/products" class="mt-5">Back to Product List</a>
   </div>
 </div>
